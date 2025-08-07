@@ -1,0 +1,64 @@
+---
+title: "r-exploring"
+author: "zachyloo"
+format: html
+editor: visual
+---
+
+```{r}
+library(GGally)
+library(tidyverse)
+library(skimr)
+library(palmerpenguins)
+```
+
+```{r}
+# look at df
+view(penguins)
+
+# view column names
+names(penguins)
+```
+
+```{r}
+# can also check dimensions
+dim(penguins)
+```
+
+```{r}
+# summary!
+summary(penguins)
+```
+
+```{r}
+# summary with skimr
+skimr::skim(penguins)
+```
+
+```{r}
+# head that
+head(penguins)
+```
+
+```{r}
+# tail that
+tail(penguins)
+```
+
+### Getting plotty
+
+```{r}
+# pair plot with GGally
+GGally::ggpairs(penguins)
+```
+
+```{r}
+# make a nicer pair plot (select # of columns)
+GGally::ggpairs(penguins, columns = 3:6, ggplot2::aes(colour = species))
+```
+
+```{r}
+# histogram of penguin flipper lengths
+ggplot(data = penguins, aes(x = flipper_length_mm)) +
+  geom_histogram()
+```
